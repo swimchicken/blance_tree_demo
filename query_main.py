@@ -4,7 +4,7 @@ couse_id = "2168"
 search = "D000373050"
 
 
-class BalancedBinaryTree:
+class hash_index:
     def __init__(self):
         self.data_dict = {}
         self.data_dict2 = {}
@@ -34,7 +34,7 @@ class BalancedBinaryTree:
             return None
 
 
-tree = BalancedBinaryTree()
+tree = hash_index()
 
 # student_id screach
 
