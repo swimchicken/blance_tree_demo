@@ -20,8 +20,7 @@ sorted_data = sorted(data[1:], key=lambda x: int(x[0][1:]))  # 透過學生id去
 output_d = 'reset_data_total'
 os.makedirs(output_d, exist_ok=True)
 
-
-#切割輸出資料,每100筆
+# 切割輸出資料,每100筆
 for i in range(0, len(sorted_data), 100):
     out_file = os.path.join(output_d, f"reset_data_total_{i // 100}.csv")
     with open(out_file, "w", newline='') as file:

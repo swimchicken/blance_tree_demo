@@ -150,6 +150,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\reset_data_total\reset_data_total_23.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\reset_data_total\reset_data_total_3.csv">
           <value>
             <Attribute>

@@ -1,7 +1,7 @@
 import csv
 
 # 設定初始值
-course_id = "2168"
+course_id = "3780"
 search = "D000373050"
 
 
@@ -15,8 +15,10 @@ class HashIndex:
     # hash_function ==> 取魔術
 
     def hash_function(self, key):
-        return int(key[1:]) % 100
+        return int(key[1:]) % 100001
 
+    def fun2(self, key):
+        return int(key) % 10001
     # 指定key:value，其中value是array()
     def insert(self, data):
         student_id = data[0]
@@ -27,7 +29,7 @@ class HashIndex:
 
     def insert2(self, data):
         course_id = data[1]
-        hash_key = self.hash_function(course_id)
+        hash_key = self.fun2(course_id)
         if hash_key not in self.data_dict2:
             self.data_dict2[hash_key] = []
         self.data_dict2[hash_key].append(data[0])
@@ -40,8 +42,8 @@ class HashIndex:
         else:
             return None
 
-    def search2(self, course_id):
-        hash_key = self.hash_function(course_id)
+    def search2(self, key):
+        hash_key = self.fun2(key)
         if hash_key in self.data_dict2:
             return self.data_dict2[hash_key]
         else:
@@ -83,4 +85,7 @@ for i in range(0, 4654):
 students = tree.search2(course_id)
 
 print("課程編號:", course_id)
-print(students)
+
+print(sorted(list(dict.fromkeys(students))))
+
+print(len(sorted(list(dict.fromkeys(students)))))

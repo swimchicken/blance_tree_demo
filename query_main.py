@@ -1,12 +1,11 @@
 import csv
 
 # 設定初始值
-couse_id = "2168"
-search = "D000373050"
+couse_id = "3898"
+search = "D0985440"
 
 
 class hash_index:
-
     # 建立空的字典陣列,其中分成兩種搜尋方式的字元陣列
     def __init__(self):
         self.data_dict = {}
