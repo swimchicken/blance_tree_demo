@@ -12,7 +12,8 @@ class HashIndex:
         self.data_dict = {}
         self.data_dict2 = {}
 
-    # 哈希函数计算索引
+    # hash_function ==> 取魔術
+
     def hash_function(self, key):
         return int(key[1:]) % 100
 
@@ -26,9 +27,10 @@ class HashIndex:
 
     def insert2(self, data):
         course_id = data[1]
-        if course_id not in self.data_dict2:
-            self.data_dict2[course_id] = []
-        self.data_dict2[course_id].append(data[0])
+        hash_key = self.hash_function(course_id)
+        if hash_key not in self.data_dict2:
+            self.data_dict2[hash_key] = []
+        self.data_dict2[hash_key].append(data[0])
 
     # 透過查找字典上的"key-index相符合，去輸出相關資料"
     def search(self, key):
@@ -39,8 +41,9 @@ class HashIndex:
             return None
 
     def search2(self, course_id):
-        if course_id in self.data_dict2:
-            return self.data_dict2[course_id]
+        hash_key = self.hash_function(course_id)
+        if hash_key in self.data_dict2:
+            return self.data_dict2[hash_key]
         else:
             return None
 
@@ -80,8 +83,4 @@ for i in range(0, 4654):
 students = tree.search2(course_id)
 
 print("課程編號:", course_id)
-
-if students:
-    print("人數總共:", len(students))
-else:
-    print("找不到該課程編號的相關資料")
+print(students)
